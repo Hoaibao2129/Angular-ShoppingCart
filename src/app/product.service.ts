@@ -24,6 +24,15 @@ export class ProductService {
       price: 7900000,
       quantity: 1,
     },
+    {
+      id: 3,
+      name: 'REALME GT NEO 2 ',
+      description: 'Ram : 12GB , ROM : 128GB',
+      image:
+        'https://cdn.mobilecity.vn/mobilecity-vn/images/2021/09/w300/realme-gt-neo-2-mint.jpg.webp',
+      price: 6050000,
+      quantity: 1,
+    },
   ];
 
   getProducts(): Products[] {

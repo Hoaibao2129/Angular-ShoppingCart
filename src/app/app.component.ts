@@ -2,11 +2,13 @@ import { Component, DoCheck } from '@angular/core';
 import { Products } from './body/common/products';
 import { Voucher } from './body/common/voucher';
 import { ProductService } from './product.service';
+import { CarServicesService } from './services/carServices.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [CarServicesService],
 })
 export class AppComponent implements DoCheck {
   vouchers: Voucher[] = [
@@ -20,13 +22,24 @@ export class AppComponent implements DoCheck {
   CoutSum: number = 0;
   subTotal: number = 0;
   disCounts: number = 0;
-  constructor(private productService: ProductService) {}
+  car: any;
+  companyTest: any;
+  a: number = 0;
+  constructor(
+    private productService: ProductService,
+    private carServices: CarServicesService
+  ) {}
   ngDoCheck() {}
   ngOnInit() {
     this.products = this.productService.getProducts();
     this.updateSummary();
   }
-
+  getCarInfo() {
+    this.a = 1;
+    this.carServices.getInfo().subscribe((car) => {
+      this.car = car;
+    });
+  }
   updateNumberItem() {
     let numberItem: any;
     for (const product of this.products) {

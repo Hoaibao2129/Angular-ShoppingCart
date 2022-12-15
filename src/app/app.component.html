@@ -1,3 +1,9 @@
+<router-outlet></router-outlet>
+
+<a [routerLink]="['/home']">ĐI TỚI HOME</a>
+|
+<a [routerLink]="['/test']">ĐI TỚI TRANG CHỦ</a>
+
 <main>
   <app-header [numberItem]="numberItem"></app-header>
   <app-body [products]="products" (onRemoveProduct)="handleRemoveProduct($event)"
@@ -9,3 +15,25 @@
     <app-list-summary [price]="subTotal" [sumPrice]="CoutSum" [disCounts]="disCounts"></app-list-summary>
   </section>
 </main>
+
+
+
+
+
+<button (click)="getCarInfo()">Click me</button>
+
+<table>
+  <tr *ngIf="a !== 0">
+    <td>ID</td>
+    <td>BRAND</td>
+    <td>MODEL</td>
+    <td>PRICE</td>
+  </tr>
+  <tr *ngFor="let car of car">
+    <td>{{car.id}}</td>
+    <td>{{car.brand}}</td>
+    <td>{{car.model}}</td>
+    <td>{{car.price}}</td>
+
+  </tr>
+</table>
